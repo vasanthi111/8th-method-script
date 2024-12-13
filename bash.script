@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Set AWS credentials (use Jenkins credentials for security)
+export AWS_ACCESS_KEY_ID="AKIATCKANLPGF3KIVZNN"
+export AWS_SECRET_ACCESS_KEY="key"
+export AWS_DEFAULT_REGION="us-east-1"
+
+# Update system and install required dependencies
+sudo yum install -y yum-utils shadow-utils
+
+# Add the HashiCorp Terraform repository
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+
+# Install Terraform
+sudo yum -y install terraform
+
+# Navigate to the Terraform project directory
+cd /path/to/your/terraform/project
+
+# Initialize Terraform
+terraform init
+
+# Validate Terraform configuration
+terraform validate
+
+# Format Terraform code
+terraform fmt
+
+# Plan Terraform changes
+terraform plan
+
+# Apply Terraform configuration
+terraform apply --auto-approve
